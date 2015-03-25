@@ -1,0 +1,27 @@
+<h1>Request a new cat rental today!</h1>
+
+<% if flash[:errors] %>
+  <ul>
+  <% flash[:errors].each do |error| %>
+    <li><%= error %></li>
+  <% end %>
+  </ul>
+<% end %>
+
+<form action="<%= cat_rental_requests_url %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <label for="cat_id">Cat ID</label>
+  <input id="cat_id" type="integer" name="cat_rental_request[cat_id]" value="<%= @rental.cat_id %>">
+  <br>
+  <br>
+  <label for="start_date">Choose Rental Start Date</label>
+  <input type="date" name="cat_rental_request[start_date]" value="<%= @rental.start_date %>">
+  <br>
+  <br>
+  <label for="start_date">Choose Rental End Date</label>
+  <input type="date" name="cat_rental_request[end_date]" value="<%= @rental.end_date %>">
+  <br>
+  <br>
+
+  <button>Submit Rental Request</button>
+</form>

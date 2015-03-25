@@ -1,0 +1,69 @@
+/*RESET*/
+
+body, figure, h1, h2, ul, li{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  text-decoration: inherit;
+  text-align: inherit;
+  color: inherit;
+  background: transparent;
+  list-style: none;
+}
+
+.game {
+
+  margin: 100px auto 20px auto;
+  width: 600px;
+}
+
+.tower {
+  display:block;
+  float: left;
+  width: 180px;
+  height: 300px;
+  border-bottom: 5px solid #000;
+  margin: 10px;
+
+}
+
+.tower:hover{
+  background: #ccc;
+}
+
+.tower-cell {
+  display: block;
+  margin: auto;
+  width: 98px;
+  height: 98px;
+  background: transparent;
+
+}
+
+
+.little{
+  width: 60px;
+  background: blue;
+}
+.medium{
+  width: 100px;
+  background: blue;
+}
+.large{
+  width: 140px;
+  background: blue;
+}
+
+h2{
+  display: block;
+  font-family: sans-serif;
+  font-size: 90px;
+  text-align: center;
+}
+/*Clearfix*/
+.group:after{
+  content: "";
+  display: block;
+  clear: both;
+}

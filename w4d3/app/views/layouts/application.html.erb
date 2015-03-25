@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cats99</title>
+</head>
+<body>
+
+
+  <%= flash[:notice] %>
+  <br>
+
+<%= yield %>
+
+
+
+<br>
+<br>
+<% unless current_user.nil? %>
+
+
+<br>
+<br>
+
+  <% current_user.sessions.each do |session| %>
+
+    Session ID: <%= session.id %>
+
+  <form action="<%= session_url(session) %>" method="POST">
+    <input type="hidden" name="_method" value="delete">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <button>Logout of Session ID: <%= session.id %></button>
+  </form>
+
+  <br>
+
+  <% end %>
+
+<% end %>
+
+</body>
+</html>

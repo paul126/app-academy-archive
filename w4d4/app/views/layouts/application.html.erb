@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MusicApp</title>
+  <%= csrf_meta_tags %>
+</head>
+<header>
+  <% if logged_in? %>
+    Welcome, <strong><%= current_user.email %></strong>
+  <% else %>
+    <a href="<%= new_sessions_url %>">Sign In</a> or <a href="<%= new_user_url %>">Sign Up</a>
+  <% end %>
+
+</header>
+<body>
+
+  <%= yield %>
+
+</body>
+<br>
+<div>
+  <% unless @user.nil? || @user.errors.full_messages.empty? %>
+    <%= @user.errors.full_messages %>
+  <% end %>
+</div>
+<div>
+  <% unless @band.nil? || @band.errors.full_messages.empty? %>
+    <%= @band.errors.full_messages %>
+  <% end %>
+</div>
+<div>
+  <% unless @album.nil? || @album.errors.full_messages.empty? %>
+    <%= @album.errors.full_messages %>
+  <% end %>
+</div>
+<div>
+  <% unless @track.nil? || @track.errors.full_messages.empty? %>
+    <%= @track.errors.full_messages %>
+  <% end %>
+</div>
+<div>
+  <% unless @note.nil? || @note.errors.full_messages.empty? %>
+    <%= @note.errors.full_messages %>
+  <% end %>
+</div>
+<footer>
+  <br>
+  <br>
+  <a href="<%= bands_url %>">Bands</a>
+  | <a href="<%= albums_url %>">Albums</a>
+  <% if @band.nil? && @album.nil? && @track.nil? %>
+    | <a href="<%= new_band_url %>">Add Band</a>
+  <% end %>
+  <% unless @band.nil? || @band.id.nil? %>
+    | <a href="<%= edit_band_url %>">Edit Band</a>
+    | <a href="<%= new_album_url %>">Add Album</a>
+  <% end %>
+  <% unless current_band.nil? %>
+    | <a href="<%= band_url(current_band) %>">Current Band</a>
+      <% if current_track.nil? %>
+      | <a href="<%= edit_album_url %>">Edit Album</a>
+      | <a href="<%= new_track_url %>">Add Track</a>
+      <% end %>
+  <% end %>
+  <% unless current_album.nil? %>
+    | <a href="<%= album_url(current_album) %>">Current Album</a>
+    | <a href="<%= edit_track_url %>">Edit Track</a>
+  <% end %>
+  <br>
+  <br>
+  <% if logged_in? %>
+    <form action="<%= sessions_url %>" method="POST">
+      <input type="hidden" name="_method" value="DELETE">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <button>Log Out</button>
+    </form>
+  <% end %>
+</footer>
+</html>

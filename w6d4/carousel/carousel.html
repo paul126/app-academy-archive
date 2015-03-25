@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bear Carousel</title>
+    <script src="../jquery-1.11.2.js"></script>
+    <script src="./carousel.js"></script>
+<link href="./carousel.css" rel="stylesheet" type="text/css">
+  </head>
+
+  <body>
+
+    <figure class="carousel">
+      <ul class="slider group">
+        <li class="item active"><img src="http://placebear.com/289/289"></li>
+        <li class="item right"><img src="http://placebear.com/288/288"></li>
+        <li class="item"><img src="http://placebear.com/286/286"></li>
+        <li class="item"><img src="http://placebear.com/285/285"></li>
+        <li class="item"><img src="http://placebear.com/280/280"></li>
+      </ul>
+
+      <section class="buttons">
+        <button class="slide-right">Prev</button>
+        <button class="slide-left">Next</button>
+      </section>
+    </figure>
+
+
+   <script>
+      $(function() {
+        $(".carousel").carousel();
+      })
+    </script>
+  </body>
+</html>

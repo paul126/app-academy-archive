@@ -1,0 +1,87 @@
+figure, body, ul, li, a, p {
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+  list-style: none;
+  text-align: inherit;
+  text-decoration: inherit;
+  font: inherit;
+  color: inherit;
+  background: transparent;
+}
+
+.tab-titles {
+  display: block;
+  width: 800px;
+  height: 32px;
+  margin: 50px auto 0px auto;
+  border: 1px solid black;
+}
+
+.tab-titles > li {
+  float: left;
+}
+
+.tab-titles > li > a {
+  display:block;
+  text-align: center;
+  vertical-align: middle;
+  font-family: sans-serif;
+  color: #000;
+  font-weight: 700;
+  font-size: 20px;
+  padding: 5px 10px;
+  width: 178px;
+  border: 1px solid black;
+  background: #ccc;
+}
+
+.tab-titles > li > a:hover {
+  background: #000;
+  color: white;
+}
+
+.tab-titles > li >a.active {
+  background: #000;
+  color: white;
+}
+
+.content-tabs {
+  width: 802px;
+  margin: auto;
+}
+
+.tab-pane{
+  display: none;
+  transition: opacity 500ms;
+}
+
+.tab-pane > p {
+  display:block;
+  text-align: justify;
+  padding: 10px 20px;
+  font-family: sans-serif;
+  color: #777;
+  font-weight: 400;
+  font-size: 16px;
+  border: 2px solid black;
+  border-radius: 0px 0px 10px 10px;
+  border-top: 0px;
+}
+
+.tab-pane.active {
+  display: block;
+  opacity: 1;
+}
+
+.tab-pane.transitioning{
+  display: block;
+  opacity: 0;
+
+}
+
+.group:after{
+  content: "";
+  display: block;
+  clear: both;
+}

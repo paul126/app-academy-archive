@@ -1,0 +1,64 @@
+<% if flash[:errors] %>
+  <ul>
+  <% flash[:errors].each do |error| %>
+    <li><%= error %></li>
+  <% end %>
+  </ul>
+<% end %>
+
+
+<% action_url = @cat.persisted? ? cat_url(@cat) : cats_url %>
+<% form_method = @cat.persisted? ? "patch" : "post" %>
+<% submit_text = @cat.persisted? ? "Update #{@cat.name}." : "Add cat." %>
+
+<form action="<%= action_url %>" method="post">
+<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method" value="<%= form_method %>">
+
+  <h3>Name</h3>
+  <input type="text" name="cat[name]" value="<%= @cat.name %>">
+  <br>
+  <br>
+
+
+<!-- RADIO BUTTONS -->
+  <h3>Sex</h3>
+  <input type="radio" name="cat[sex]" id="male" value="M" <%= "checked" if @cat.sex == "M"%> >
+  <label for="male">Male</label>
+  <br>
+  <input type="radio" name="cat[sex]" id="female" value="F" <%= "checked" if @cat.sex == "F"%> >
+  <label for="female">Female</label>
+  <br>
+
+
+<!-- DROPDOWN BOX  -->
+  <h3>Color</h3>
+  <select name="cat[color]" id="cat_color">
+  <option value=<%= @cat.color%>><%= @cat.color%></option>
+  <% Cat::CAT_COLORS.each do |color|%>
+
+    <option value="<%=color%>"><%=color%></option>
+
+  <%end%>
+
+  </select>
+
+  <br>
+  <br>
+
+<!-- BIRTHDAY SELECT CALENDAR  -->
+  <h3>Birthday</h3>
+  <input type="date" name="cat[birth_date]" value=<%=@cat.birth_date%>>
+  <br>
+  <br>
+
+<!-- DESCRIPTION TEXTAREA -->
+  <h3>Description</h3>
+  <textarea name="cat[description]" id="cat_description"><%= @cat.description %></textarea>
+
+  <br>
+  <br>
+  <br>
+
+  <button><%= submit_text %></button>
+</form>

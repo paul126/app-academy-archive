@@ -1,0 +1,7 @@
+<h1>All Albums</h1>
+
+<ul>
+<% Album.all_albums_alphabetical_with_id.each do |album| %>
+  <li><a href="<%= album_url(album[:id]) %>"><%= album[:title] %></a></li>
+<% end %>
+</ul>

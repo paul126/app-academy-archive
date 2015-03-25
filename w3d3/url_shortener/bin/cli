@@ -1,0 +1,84 @@
+require 'launchy'
+
+
+class UrlPrompt
+
+  def run
+      get_email
+      log_in_user
+      carry_out_choice(get_choice)
+  end
+
+  def get_email
+    puts "Enter your email:"
+    @email = gets.chomp
+  end
+
+  def log_in_user
+    @user = User.find_by(email: @email)
+  end
+
+  def get_choice
+    puts "0. Create shortened URL\n1. Visit shortened URL\n2. View tags of shortened URL"
+    choice = gets.chomp
+  end
+
+  def carry_out_choice(choice)
+    case choice
+    when "0"
+      create_url
+      add_tag
+    when "1"
+      enter_url
+    when "2"
+      show_tags
+    end
+  end
+
+  def create_url
+    puts "Type in your long URL:"
+    long_url = gets.chomp
+    @short = ShortenedUrl.create_for_user_and_long_url!(@user, long_url)
+
+    puts "Short URL is #{@short.short_url}"
+  end
+
+  def add_tag
+    puts "Add a tag?"
+    puts "0. No"
+    puts "1. Sports"
+    puts "2. Movies"
+    puts "3. Music"
+    puts "4. News"
+    puts "5. Food"
+    number = gets.chomp
+
+    Tagging.create_tag_association!(@short, number)
+
+  end
+
+  def enter_url
+    orig_url = url.long_url
+
+    Launchy.open(orig_url)
+    Visit.record_visit!(@user, @url)
+  end
+
+  def show_tags
+    get_url
+
+    @url.tags.each do |tag|
+      puts tag.tag
+    end
+
+  end
+
+  def get_url
+    puts "Type in your short URL:"
+    short_url = gets.chomp
+    @url = ShortenedUrl.find_by(short_url: short_url)
+  end
+
+end
+
+UrlPrompt.new.run

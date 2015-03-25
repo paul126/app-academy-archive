@@ -1,0 +1,15 @@
+<h1>Feeds</h1>
+
+<ul class="feeds-list">
+  <% feeds.each( function (feed){ %>
+    <li class="feeds-list-item">
+      <a href="#/feeds/<%= feed.id %>"><%= feed.escape('title') %></a>
+      <button data-feed-id="<%= feed.id %>"class="destroy">Delete</button>
+    </li>
+  <% }) %>
+</ul>
+
+<a href="#feeds/new">Add Feed</a>
+<br>
+<br>
+<a href="#users/new">Sign Up</a>

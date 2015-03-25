@@ -1,0 +1,12 @@
+<h1>Rental Requests</h1>
+
+<ul>
+  <% @rentals.each do |rental| %>
+    <li><strong>Rental ID: <%= rental.id %></strong></li>
+    <li>Start Date: <%= rental.start_date.month %>-<%= rental.start_date.day %>-<%= rental.start_date.year %></li>
+    <li>End Date: <%= rental.end_date.month %>-<%= rental.end_date.day %>-<%= rental.end_date.year %></li>
+    <li>Status: <strong><%= rental.status %></strong></li>
+    <br>
+    <br>
+  <% end %>
+</ul>

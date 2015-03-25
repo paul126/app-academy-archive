@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dog Tabs</title>
+    <script src="../jquery-1.11.2.js"></script>
+    <script src="./tabs.js"></script>
+<link href="./tabs.css" rel="stylesheet" type="text/css">
+  </head>
+
+  <body>
+
+    <figure class="tabs">
+      <ul class='tab-titles group'>
+        <li><a class='active' href="#airedale">Airedale Terrier</a></li>
+        <li><a href="#golden">Golden Retriever</a></li>
+        <li><a href="#labrador">Labrador</a></li>
+        <li><a href="#shiba">Shiba Inu</a></li>
+      </ul>
+      <ul class='content-tabs'>
+        <li class='tab-pane active' id='airedale'>
+        <p>
+        The Airedale Terrier, the "King of Terriers," is brimming with
+        personality. He has the trademark terrier temperament: energetic,
+        curious, feisty, and boisterous. He thinks he is a comedian and will
+        provide you with years of comic relief. He craves your attention and
+        will act out to get it. They are intelligent, and quick learners, but
+        they certainly think for themselves, so their idea of "trained" might
+        differ from yours.
+        </p>
+        </li>
+        <li class='tab-pane' id='golden'>
+        <p>
+        The Golden Retriever is a happy-go-lucky clown. He's reliable,
+        trustworthy, calm, friendly, gentle and confident. He's very eager
+        to please you. He isn't a one-man dog because he loves everybody.
+        He's friendly with all dogs and strangers. He's highly intelligent
+        and trainable. He's very active and energetic. He loves to romp, run
+        and play outdoors and he loves to swim. He's gentle and patient with
+        kids, even bratty ones! He loves to play games and have fun. He's
+        athletic, agile and fast on his feet.
+        </p>
+        </li>
+        <li class='tab-pane' id='labrador'>
+        <p>
+        The Labrador Retriever is the most popular dog breed in the United
+        States (and Canada and Australia). He's owned by millions of people!
+        Labs are loving, people-oriented dogs. They are very loyal and loving
+        to their families. Labs are friendly, happy-go-lucky dogs prized for
+        their stable and reliable temperaments. Labs are good-natured and
+        trustworthy. They're dependable and easy-going. Labs are very stable,
+        they aren't easily upset or startled. They're eager to please you;
+        always seeking your approval. Labs are very affectionate with their
+        families and desire plenty of close physical contact: tummy rubs and
+        behind the ears scratches. They thrive on human companionship and
+        attention. They  always want to be with you and will follow you around
+        everywhere you go!
+        </p>
+        </li>
+        </li>
+        <li class='tab-pane' id='shiba'>
+        <p>
+        The Shiba Inu is a unique breed. Intelligent, active, energetic, they
+        think pretty highly of themselves. They are famous for their spirited
+        boldness and independent nature. If you are not careful, they will
+        train you. Early obedience training is important, but even then, Shibas
+        don't really enjoy being obedient. Off leash work is especially
+        challenging and the recall might require a miracle. They love to run
+        and they love to run away. They are escape artists and owners must be
+        careful every single time they open a door because they will bolt. Some
+        can even climb chain link fences. Shibas have been known to disappear
+        for days at a time. They will hunt mice, squirrels, and other small
+        animals if they can.
+        </p>
+        </li>
+      </ul>
+    </figure>
+
+   <script>
+      $(function() {
+        $(".tabs").tabs();
+      })
+    </script>
+  </body>
+</html>

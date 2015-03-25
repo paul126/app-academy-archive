@@ -1,0 +1,15 @@
+/* PHASE 8: Thumbs */
+.thumbs-grid > li > a {
+  height: 100%;
+  width: 58px;
+  border: 1px solid #000;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  float: left;
+  display: block;
+  overflow: hidden;
+}
+
+.thumbs-grid:nth-child(n) {
+  margin:5px;
+}

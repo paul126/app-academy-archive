@@ -1,0 +1,10 @@
+<h1>Edit Band - <%= @band.name %></h1>
+
+<%= render "form", band: @band %>
+<br>
+<br>
+<form action="<%= band_url(params[:id]) %>" method="POST">
+  <input type="hidden" name="_method" value="DELETE">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <button>Delete Band</button>
+</form>

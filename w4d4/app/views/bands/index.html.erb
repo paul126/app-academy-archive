@@ -1,0 +1,7 @@
+<h1>All Bands</h1>
+
+<ul>
+<% Band.all_bands_alphabetical_with_id.each do |band| %>
+  <li><a href="<%= band_url(band[:id]) %>"><%= band[:name] %></a></li>
+<% end %>
+</ul>

@@ -1,0 +1,8 @@
+<h1>Rental #<%= @rental.id %></h1>
+
+<ul>
+  <li>Cat ID: <%= @rental.cat_id %></li>
+  <li>Start Date: <%= @rental.start_date.month %> - <%= @rental.start_date.day %> - <%= @rental.start_date.year %> </li>
+  <li>End Date: <%= @rental.end_date.month %> - <%= @rental.end_date.day %> - <%= @rental.end_date.year %>  </li>
+  <li>Status: <%= @rental.status %></li>
+</ul>

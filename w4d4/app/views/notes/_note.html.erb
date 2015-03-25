@@ -1,0 +1,14 @@
+<% Note.select(:id, :comment, :user_id).where(track_id: @track.id).each_with_index do |note, i| %>
+  <strong>Comment #<%= i + 1 %></strong> (<%= User.find(note.user_id).email %>)
+  <% if current_user.id == note.user_id %>
+  <form action="<%= note_url(note.id) %>" method="POST">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <button>Delete Comment</button>
+  </form>
+  <% end %>
+  <br>
+  <%= note.comment %>
+  <br>
+  <br>
+<% end %>

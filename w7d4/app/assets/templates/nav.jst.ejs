@@ -1,0 +1,8 @@
+<% if (user) { %>
+  <span> Welcome, <%=  user.escape('username') %></span>
+  <button class="sign-out">Sign-Out</button>
+<% } else { %>
+  <button class="sign-in">Sign-In</button>
+  Or
+  <button class="sign-up">Sign-Up</button>
+<% } %>
